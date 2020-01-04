@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
@@ -15,7 +16,7 @@ public class LoginPage {
     private SelenideElement loginButton = $(logButton);
 
     public VerificationPage validLogin(DataHelper.AuthInfo authInfo) {
-         loginField.setValue(authInfo.getLogin());
+         loginField.setValue(authInfo.getLogin()).waitUntil(Condition.visible, 15000);
          passwordField.setValue(authInfo.getPassword());
          loginButton.click();
          return new VerificationPage();
