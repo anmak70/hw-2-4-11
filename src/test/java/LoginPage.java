@@ -16,7 +16,7 @@ public class LoginPage {
     private SelenideElement loginButton = $(logButton);
 
     public VerificationPage validLogin(DataHelper.AuthInfo authInfo) {
-         loginField.setValue(authInfo.getLogin()).waitUntil(Condition.visible, 15000);
+         loginField.setValue(authInfo.getLogin());
          passwordField.setValue(authInfo.getPassword());
          loginButton.click();
          return new VerificationPage();
